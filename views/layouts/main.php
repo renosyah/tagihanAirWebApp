@@ -37,12 +37,13 @@ AppAsset::register($this);
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
+        'items' => Yii::$app->user->isGuest ? ([
             ['label' => 'Beranda', 'url' => ['/site/index']],
             ['label' => 'Tentang', 'url' => ['/site/about']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
+            ['label' => 'Login', 'url' => ['/site/login']]
+        ]) : [
+            ['label' => 'Tagihan', 'url' => ['/bill/index']],
+            (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
@@ -52,7 +53,7 @@ AppAsset::register($this);
                 . Html::endForm()
                 . '</li>'
             )
-        ],
+        ]
     ]);
     NavBar::end();
     ?>
