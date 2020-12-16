@@ -1,6 +1,11 @@
 html,
 body {
     height: 100%;
+    background-image: url('../bg.png');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .wrap {
@@ -112,4 +117,8 @@ a.desc:after {
 
 .nav > li > form > button.logout:focus {
     outline: none;
+}
+
+#gridview-bg {
+    background-color: white;
 }

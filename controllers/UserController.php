@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Bill;
-use app\models\BillSearch;
+use app\models\User;
+use app\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * BillController implements the CRUD actions for Bill model.
+ * UserController implements the CRUD actions for User model.
  */
-class BillController extends Controller
+class UserController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,14 +30,14 @@ class BillController extends Controller
     }
 
     /**
-     * Lists all Bill models.
+     * Lists all User models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new BillSearch();
+        $searchModel = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
- 
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -45,7 +45,7 @@ class BillController extends Controller
     }
 
     /**
-     * Displays a single Bill model.
+     * Displays a single User model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,14 +58,13 @@ class BillController extends Controller
     }
 
     /**
-     * Creates a new Bill model.
+     * Creates a new User model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Bill();
-        $model->issue_from = Yii::$app->user->identity->id;
+        $model = new User();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -77,7 +76,7 @@ class BillController extends Controller
     }
 
     /**
-     * Updates an existing Bill model.
+     * Updates an existing User model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -97,7 +96,7 @@ class BillController extends Controller
     }
 
     /**
-     * Deletes an existing Bill model.
+     * Deletes an existing User model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -111,15 +110,15 @@ class BillController extends Controller
     }
 
     /**
-     * Finds the Bill model based on its primary key value.
+     * Finds the User model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Bill the loaded model
+     * @return User the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Bill::findOne($id)) !== null) {
+        if (($model = User::findOne($id)) !== null) {
             return $model;
         }
 

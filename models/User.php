@@ -59,7 +59,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 
     public static function findUsername($username)
     {
-        return User::find()->where(['username' => $username])->one();
+        return User::find()->where(['username' => $username,'type_user' => 0])->one();
     }
 
 

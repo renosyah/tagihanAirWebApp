@@ -76,6 +76,11 @@ class Bill extends \yii\db\ActiveRecord
         return $this->hasOne(User::className(), ['id' => 'issue_from']);
     }
 
+    public function getStatusText()
+    {
+        return $this->status == 1 ? 'Belum Lunas' : 'Sudah Lunas';
+    }
+
     /**
      * {@inheritdoc}
      * @return BillQuery the active query used by this AR class.
