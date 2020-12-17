@@ -18,24 +18,10 @@ $this->title = 'Beranda';
        
     </div>
     <div class="col-sm-6">
-    <div class="jumbotron">
-        <h1>Selamat Datang</h1>
-
+ 
+        <h1><b>Selamat Datang</b></h1>
         <p class="lead">Ini adalah sistem penagih tagihan air yang dibuat menggunakan framework YII 2.</p>
-    
-        <div class="bill-search">
-          <?php $form = ActiveForm::begin([
-              'action' => ['bill/index'],
-              'method' => 'get',
-          ]); ?>
-          <?= $form->field($searchModel, 'issue_to')->label('Id User Anda') ?>
-          <div class="form-group">
-              <?= Html::submitButton('Cari', ['class' => 'btn btn-primary']) ?>
-          </div>
-          <?php ActiveForm::end(); ?>
-        </div>
 
-    </div>
     </div>
   </div>
 </div>

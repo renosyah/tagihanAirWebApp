@@ -2,8 +2,6 @@
 
 namespace app\models;
 
-use Yii;
-use yii\behaviors\SluggableBehavior;
 
 class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
@@ -13,7 +11,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
      */
     public static function tableName()
     {
-        return 'user';
+        return 'admin';
     }
 
     /**
@@ -22,8 +20,8 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function rules()
     {
         return [
-            [['id','type_user'], 'integer'],
-            [['name','username', 'password','token','auth_key'], 'string'],
+            [['id_admin'], 'integer'],
+            [['nama','username', 'password','token','auth_key'], 'string'],
         ];
     }
 
@@ -33,9 +31,8 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'type_user' => 'Type User',
-            'name' => 'Name',
+            'id_admin' => 'id admin',
+            'nama' => 'Nama',
             'username' => 'Username',
             'password' => 'Password',
             'token' => 'Access Token',
@@ -43,23 +40,10 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         ];
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            [
-                'class' => SluggableBehavior::className(),
-                'attribute' => 'title',
-                'slugAttribute' => 'slug'
-            ],
-        ];
-    }
 
     public static function findUsername($username)
     {
-        return User::find()->where(['username' => $username,'type_user' => 0])->one();
+        return User::find()->where(['username' => $username])->one();
     }
 
 
@@ -84,7 +68,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
      */
     public function getId()
     {
-        return $this->id;
+        return $this->id_admin;
     }
 
     /**
@@ -105,8 +89,14 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 
      /**
      * @inheritdoc
-     */    public function validatePassword($password)
+     */    
+    public function validatePassword($password)
     {
         return $this->password === $password;
+    }
+
+    public static function find()
+    {
+        return new UserQuery(get_called_class());
     }
 }

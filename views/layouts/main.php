@@ -42,12 +42,11 @@ AppAsset::register($this);
             ['label' => 'Tentang', 'url' => ['/site/about']],
             ['label' => 'Login Admin', 'url' => ['/site/login']]
         ]) : [
-            ['label' => 'Tagihan', 'url' => ['/bill/index']],
             (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->name . ')',
+                    'Logout (' . Yii::$app->user->identity->nama . ')',
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()

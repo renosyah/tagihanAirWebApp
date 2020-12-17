@@ -9,7 +9,6 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\models\BillSearch;
 
 class SiteController extends Controller
 {
@@ -62,10 +61,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new BillSearch();
-        return $this->render('index',[
-            'searchModel' => $searchModel
-        ]);
+        return $this->render('index');
     }
 
     /**
@@ -81,7 +77,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->redirect(['/bill/index']);
+            return $this->goBack();
         }
 
         $model->password = '';

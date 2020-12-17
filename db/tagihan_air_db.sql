@@ -1,28 +1,70 @@
-DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS admin;
 
-CREATE TABLE user(
-    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name TEXT,
-    username TEXT,
-    password TEXT,
+CREATE TABLE admin(
+    id_admin INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(50),
+    username VARCHAR(20),
+    password VARCHAR(20),
     auth_key TEXT,
-    token TEXT,
-    type_user INT
+    token TEXT
 );
 
-INSERT INTO user (id,name,username,password,auth_key,token,type_user) VALUES (1,'reno','renosyah','12345','auth_key-01','token-01',0);
-INSERT INTO user (id,name,username,password,auth_key,token,type_user) VALUES (2,'wawan','wawan','12345','auth_key-02','token-02',1);
-INSERT INTO user (id,name,username,password,auth_key,token,type_user) VALUES (3,'robi','robi','12345','auth_key-03','token-03',1);
+INSERT INTO admin (id_admin,nama,username,password,auth_key,token) VALUES (1,'admin','admin','admin','auth_key-01','token-01');
 
-DROP TABLE IF EXISTS bill;
+DROP TABLE IF EXISTS pelanggan;
 
-CREATE TABLE bill(
-    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    bill_code TEXT,
-    issue_to INT(11) NOT NULL,
-    issue_from INT(11) NOT NULL,
-    total INT,
-    status INT,
-    FOREIGN KEY (issue_to) REFERENCES user(id),
-    FOREIGN KEY (issue_from) REFERENCES user(id)
+CREATE TABLE pelanggan(
+    id_pelanggan VARCHAR(12) PRIMARY KEY,
+    nama_lengkap VARCHAR(50),
+    email VARCHAR(20),
+    no_telp VARCHAR(20),
+    alamat VARCHAR(50)
 );
+
+INSERT INTO pelanggan (id_pelanggan,nama_lengkap,email,no_telp,alamat) VALUES ('p001','pelanggan A','pelanggan1@gmail.com','0812345678','jl janti, bantul, DIY');
+
+DROP TABLE IF EXISTS berita;
+
+CREATE TABLE berita(
+    id_berita INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    judul VARCHAR(100),
+    tgl_berita DATETIME,
+    isi_berita TEXT,
+    gambar TEXT,
+    id_admin INT(11) NOT NULL,
+    FOREIGN KEY(id_admin) REFERENCES admin(id_admin)
+);
+
+DROP TABLE IF EXISTS pengumuman;
+
+CREATE TABLE pengumuman(
+    id_pengumuman INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_kategori VARCHAR(100),
+    judul VARCHAR(100),
+    tgl_berita DATETIME,
+    isi_berita TEXT,
+    id_admin INT(11) NOT NULL,
+    FOREIGN KEY(id_admin) REFERENCES admin(id_admin)
+);
+
+DROP TABLE IF EXISTS pengaduan;
+
+CREATE TABLE pengaduan(
+    id_pengaduan INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    pengaduan TEXT,
+    id_pelanggan VARCHAR(12),
+    penanganan TEXT,
+    status TEXT,
+    id_admin INT(11) NOT NULL,
+    FOREIGN KEY(id_admin) REFERENCES admin(id_admin)
+);
+
+DROP TABLE IF EXISTS info_pelanggan;
+
+CREATE TABLE info_pelanggan(
+    id_pelanggan VARCHAR(12) PRIMARY KEY,
+    id_bayar INT(11),
+    tgl_pembayaran DATETIME,
+    denda VARCHAR(100)
+);
+
