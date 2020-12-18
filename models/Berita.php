@@ -18,6 +18,8 @@ use Yii;
  */
 class Berita extends \yii\db\ActiveRecord
 {
+
+    public $file_gambar;
     /**
      * {@inheritdoc}
      */
@@ -38,6 +40,7 @@ class Berita extends \yii\db\ActiveRecord
             [['id_admin'], 'integer'],
             [['judul'], 'string', 'max' => 100],
             [['id_admin'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_admin' => 'id_admin']],
+            [['file_gambar'], 'file', 'extensions' => 'png, jpg']
         ];
     }
 
@@ -53,6 +56,7 @@ class Berita extends \yii\db\ActiveRecord
             'isi_berita' => 'Isi Berita',
             'gambar' => 'Gambar',
             'id_admin' => 'Id Admin',
+            'file_gambar' => 'File Gambar'
         ];
     }
 
@@ -74,4 +78,16 @@ class Berita extends \yii\db\ActiveRecord
     {
         return new BeritaQuery(get_called_class());
     }
+
+    public function beforeSave($insert)
+
+	{
+
+    	$this->tgl_berita = Yii::$app->formatter->asDate($this->tgl_berita, 'yyyy-MM-dd');
+
+    	parent::beforeSave($insert);
+
+    	return true;
+
+	}
 }

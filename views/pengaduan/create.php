@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Pengaduan */
 
-$this->title = 'Create Pengaduan';
-$this->params['breadcrumbs'][] = ['label' => 'Pengaduans', 'url' => ['index']];
+$this->title = 'Buat Pengaduan';
+$this->params['breadcrumbs'][] = ['label' => 'Pengaduan', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pengaduan-create">

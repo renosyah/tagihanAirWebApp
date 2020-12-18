@@ -31,7 +31,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'judul',
             'tgl_berita',
             'isi_berita:ntext',
-            'gambar:ntext',
+            [
+                'attribute' => 'gambar',
+                'format' => 'html',
+                'label' => 'Gambar',
+                'value' => function ($data) {
+                    return Html::img(Yii::$app->request->BaseUrl . $data['gambar'],['width' => '300px']);
+               },
+          ],
             //'id_admin',
 
             ['class' => 'yii\grid\ActionColumn','visible' => !Yii::$app->user->isGuest],

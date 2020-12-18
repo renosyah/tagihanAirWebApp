@@ -8,6 +8,7 @@ use app\models\BeritaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * BeritaController implements the CRUD actions for Berita model.
@@ -65,6 +66,13 @@ class BeritaController extends Controller
     public function actionCreate()
     {
         $model = new Berita();
+
+        if ($model->file_gambar = UploadedFile::getInstance($model, 'file_gambar')){
+
+            $path = 'uploads/' . $model->file_gambar->baseName . '.' . $model->file_gambar->extension;
+            $model->file_gambar->saveAs($path);
+            $model->gambar = '/'.$path;
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_berita]);
