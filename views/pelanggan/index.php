@@ -19,23 +19,25 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <div class="table-responsive">
+        <?= GridView::widget([
+            'id' => 'gridview-bg',
+            'dataProvider' => $dataProvider,
+            //'filterModel' => $searchModel,
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
 
-    <?= GridView::widget([
-        'id' => 'gridview-bg',
-        'dataProvider' => $dataProvider,
-        //'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+                'id_pelanggan',
+                'nama_lengkap',
+                'email:email',
+                'no_telp',
+                'alamat',
 
-            'id_pelanggan',
-            'nama_lengkap',
-            'email:email',
-            'no_telp',
-            'alamat',
+                ['class' => 'yii\grid\ActionColumn','visible' => !Yii::$app->user->isGuest],
+            ],
+        ]); ?>
+    </div>
 
-            ['class' => 'yii\grid\ActionColumn','visible' => !Yii::$app->user->isGuest],
-        ],
-    ]); ?>
 
 
 </div>
