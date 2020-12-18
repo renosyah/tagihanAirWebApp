@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Pelanggan', ['create'], ['class' => 'btn btn-success']) ?>
+        <?=  Yii::$app->user->isGuest ? '' : Html::a('Create Pelanggan', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'no_telp',
             'alamat',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn','visible' => !Yii::$app->user->isGuest],
         ],
     ]); ?>
 

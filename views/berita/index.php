@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Tambah Berita', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Yii::$app->user->isGuest ? '' : Html::a('Tambah Berita', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'gambar:ntext',
             //'id_admin',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn','visible' => !Yii::$app->user->isGuest],
         ],
     ]); ?>
 

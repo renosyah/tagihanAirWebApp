@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Info Pelanggan', ['create'], ['class' => 'btn btn-success']) ?>
+        <?=  Yii::$app->user->isGuest ? '' : Html::a('Create Info Pelanggan', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'tgl_pembayaran',
             'denda',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn','visible' => !Yii::$app->user->isGuest],
         ],
     ]); ?>
 
