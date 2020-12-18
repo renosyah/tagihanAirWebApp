@@ -74,4 +74,16 @@ class Pengumuman extends \yii\db\ActiveRecord
     {
         return new PengumumanQuery(get_called_class());
     }
+
+    public function beforeSave($insert)
+
+	{
+
+    	$this->tgl_berita = Yii::$app->formatter->asDate($this->tgl_berita, 'yyyy-MM-dd');
+
+    	parent::beforeSave($insert);
+
+    	return true;
+
+	}
 }

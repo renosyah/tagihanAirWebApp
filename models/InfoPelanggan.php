@@ -58,4 +58,16 @@ class InfoPelanggan extends \yii\db\ActiveRecord
     {
         return new InfoPelangganQuery(get_called_class());
     }
+
+    public function beforeSave($insert)
+
+	{
+
+    	$this->tgl_pembayaran = Yii::$app->formatter->asDate($this->tgl_pembayaran, 'yyyy-MM-dd');
+
+    	parent::beforeSave($insert);
+
+    	return true;
+
+	}
 }

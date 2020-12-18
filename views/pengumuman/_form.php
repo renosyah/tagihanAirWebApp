@@ -16,7 +16,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'judul')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'tgl_berita')->textInput() ?>
+    <?= $form->field($model, 'tgl_berita')->widget(\yii\jui\DatePicker::className(), [
+        'options' => ['class' => 'form-control']
+    ]) ?>
 
     <?= $form->field($model, 'isi_berita')->textarea(['rows' => 6]) ?>
 

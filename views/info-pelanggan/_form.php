@@ -16,7 +16,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id_bayar')->textInput() ?>
 
-    <?= $form->field($model, 'tgl_pembayaran')->textInput() ?>
+    <?= $form->field($model, 'tgl_pembayaran')->widget(\yii\jui\DatePicker::className(), [
+        'options' => ['class' => 'form-control']
+    ]) ?>
 
     <?= $form->field($model, 'denda')->textInput(['maxlength' => true]) ?>
 
