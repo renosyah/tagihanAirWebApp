@@ -93,6 +93,13 @@ class BeritaController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        
+        if ($model->file_gambar = UploadedFile::getInstance($model, 'file_gambar')){
+
+            $path = 'uploads/' . $model->file_gambar->baseName . '.' . $model->file_gambar->extension;
+            $model->file_gambar->saveAs($path);
+            $model->gambar = '/'.$path;
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_berita]);
