@@ -9,7 +9,7 @@ $this->title = 'Buat Pengaduan';
 $this->params['breadcrumbs'][] = ['label' => 'Pengaduan', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="pengaduan-create">
+<div class="pengaduan-create" style="background-color : white; padding:50px">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

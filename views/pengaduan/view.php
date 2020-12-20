@@ -27,6 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?= DetailView::widget([
+        'id' => 'gridview-bg',
         'model' => $model,
         'attributes' => [
             'id_pengaduan',
