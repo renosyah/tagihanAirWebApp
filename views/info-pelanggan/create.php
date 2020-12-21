@@ -9,7 +9,7 @@ $this->title = 'Tambah Info Pelanggan';
 $this->params['breadcrumbs'][] = ['label' => 'Info Pelanggan', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="info-pelanggan-create">
+<div class="info-pelanggan-create" style="background-color : white; padding:50px">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
