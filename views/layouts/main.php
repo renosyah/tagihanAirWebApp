@@ -39,16 +39,16 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => Yii::$app->user->isGuest ? ([
             ['label' => 'Beranda', 'url' => ['/site/index']],
-            ['label' => 'Berita', 'url' => ['/berita/index']],
+            //['label' => 'Berita', 'url' => ['/berita/index']],
             ['label' => 'Pengumuman', 'url' => ['/pengumuman/index']],
-            ['label' => 'Pelanggan', 'url' => ['/pelanggan/index']],
-            ['label' => 'Info Pelanggan', 'url' => ['/info-pelanggan/index']],
+            //['label' => 'Pelanggan', 'url' => ['/pelanggan/index']],
+            //['label' => 'Info Pelanggan', 'url' => ['/info-pelanggan/index']],
             ['label' => 'Pengaduan', 'url' => ['/pengaduan/index']],
             ['label' => 'Tentang', 'url' => ['/site/about']],
             ['label' => 'Login Admin', 'url' => ['/site/login']]
         ]) : [
             ['label' => 'Beranda', 'url' => ['/site/index']],
-            ['label' => 'Berita', 'url' => ['/berita/index']],
+            //['label' => 'Berita', 'url' => ['/berita/index']],
             ['label' => 'Pengumuman', 'url' => ['/pengumuman/index']],
             ['label' => 'Pelanggan', 'url' => ['/pelanggan/index']],
             ['label' => 'Info Pelanggan', 'url' => ['/info-pelanggan/index']],

@@ -33,6 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_bayar',
             'tgl_pembayaran',
             'denda',
+            'total_bayar',
         ],
     ]) ?>
 

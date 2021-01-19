@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'id_bayar',
                 'tgl_pembayaran',
                 'denda',
+                'total_bayar',
 
                 ['class' => 'yii\grid\ActionColumn','visible' => !Yii::$app->user->isGuest],
             ],

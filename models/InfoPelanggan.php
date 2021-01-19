@@ -31,8 +31,9 @@ class InfoPelanggan extends \yii\db\ActiveRecord
             [['id_pelanggan'], 'required'],
             [['id_bayar'], 'integer'],
             [['tgl_pembayaran'], 'safe'],
-            [['id_pelanggan'], 'string', 'max' => 12],
+            [['id_pelanggan'], 'integer', 'max' => 11],
             [['denda'], 'string', 'max' => 100],
+            [['total_bayar'], 'string', 'max' => 100],
             [['id_pelanggan'], 'unique'],
         ];
     }
@@ -47,6 +48,7 @@ class InfoPelanggan extends \yii\db\ActiveRecord
             'id_bayar' => 'Id Bayar',
             'tgl_pembayaran' => 'Tgl Pembayaran',
             'denda' => 'Denda',
+            'total_bayar' => 'Total Bayar',
         ];
     }
 

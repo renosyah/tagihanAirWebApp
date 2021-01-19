@@ -22,6 +22,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'denda')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'total_bayar')->textInput(['maxlength' => true]) ?>
+
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

@@ -30,7 +30,7 @@ class Pelanggan extends \yii\db\ActiveRecord
     {
         return [
             [['id_pelanggan'], 'required'],
-            [['id_pelanggan'], 'string', 'max' => 12],
+            [['id_pelanggan'], 'integer', 'max' => 11],
             [['nama_lengkap', 'alamat'], 'string', 'max' => 50],
             [['email', 'no_telp'], 'string', 'max' => 20],
             [['id_pelanggan'], 'unique'],

@@ -14,14 +14,14 @@ INSERT INTO admin (id_admin,nama,username,password,auth_key,token) VALUES (1,'ad
 DROP TABLE IF EXISTS pelanggan;
 
 CREATE TABLE pelanggan(
-    id_pelanggan VARCHAR(12) PRIMARY KEY,
+    id_pelanggan INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nama_lengkap VARCHAR(50),
     email VARCHAR(20),
     no_telp VARCHAR(20),
     alamat VARCHAR(50)
 );
 
-INSERT INTO pelanggan (id_pelanggan,nama_lengkap,email,no_telp,alamat) VALUES ('p001','pelanggan A','pelanggan1@gmail.com','0812345678','jl janti, bantul, DIY');
+INSERT INTO pelanggan (id_pelanggan,nama_lengkap,email,no_telp,alamat) VALUES ('1','pelanggan A','pelanggan1@gmail.com','0812345678','jl janti, bantul, DIY');
 
 DROP TABLE IF EXISTS berita;
 
@@ -62,9 +62,10 @@ CREATE TABLE pengaduan(
 DROP TABLE IF EXISTS info_pelanggan;
 
 CREATE TABLE info_pelanggan(
-    id_pelanggan VARCHAR(12) PRIMARY KEY,
+    id_pelanggan INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_bayar INT(11),
     tgl_pembayaran DATETIME,
-    denda VARCHAR(100)
+    denda VARCHAR(100),
+    total_bayar VARCHAR(100)
 );
 

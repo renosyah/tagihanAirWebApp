@@ -27,7 +27,7 @@ $this->title = 'Beranda';
                 'action' => ['info-pelanggan/index'],
                 'method' => 'get'
             ]); ?>
-            <?= $form->field($searchModel, 'id_pelanggan')->label('Id Pelanggan Anda')->textInput(['autofocus' => true]) ?>
+            <?= $form->field($searchModel, 'id_pelanggan')->label('Id Pelanggan Anda')->textInput(['autofocus' => true,'required'=>true]) ?>
             <div class="form-group">
               <?= Html::submitButton('Cari', ['class' => 'btn btn-lg btn-primary']) ?>
               <?= Html::resetButton('Reset', ['class' => 'btn btn-lg btn-default']) ?>
