@@ -2,7 +2,7 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;port=3360;dbname=tagihan_air_db',
+    'dsn' => 'mysql:host=localhost;dbname=tagihan_air_db',
     'username' => 'root',
     'password' => '',
     'charset' => 'utf8',
