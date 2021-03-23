@@ -7,6 +7,9 @@ namespace app\models;
  *
  * @see User
  */
+// berikut ini adalah class 
+// model yang akan digunakan untuk 
+// melakukan fungsi CRUD
 class UserQuery extends \yii\db\ActiveQuery
 {
     /*public function active()
@@ -18,6 +21,8 @@ class UserQuery extends \yii\db\ActiveQuery
      * {@inheritdoc}
      * @return User[]|array
      */
+    // fungsi untuk melakukan query
+    // yang akan memberikan data list
     public function all($db = null)
     {
         return parent::all($db);
@@ -27,6 +32,8 @@ class UserQuery extends \yii\db\ActiveQuery
      * {@inheritdoc}
      * @return User|array|null
      */
+    // fungsi untuk melakukan query
+    // yang akan memberikan hanya satu data
     public function one($db = null)
     {
         return parent::one($db);

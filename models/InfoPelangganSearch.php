@@ -9,11 +9,18 @@ use app\models\InfoPelanggan;
 /**
  * InfoPelangganSearch represents the model behind the search form of `app\models\InfoPelanggan`.
  */
+// berikut ini adalah class 
+// model yang akan digunakan untuk 
+// melakukan fungsi CRUD
 class InfoPelangganSearch extends InfoPelanggan
 {
     /**
      * {@inheritdoc}
      */
+    // list variabel yang akan menampung
+    // value dan juga dengan tipe datanya
+    // yang harus sesuai dengan tipe data
+    // pada colomn di table database
     public function rules()
     {
         return [
@@ -25,6 +32,7 @@ class InfoPelangganSearch extends InfoPelanggan
     /**
      * {@inheritdoc}
      */
+    // fungsi skenario
     public function scenarios()
     {
         // bypass scenarios() implementation in the parent class
@@ -38,6 +46,9 @@ class InfoPelangganSearch extends InfoPelanggan
      *
      * @return ActiveDataProvider
      */
+    // fungsi search yang berfungsi untuk
+    // mengambil data list namun berdasarkan column
+    // yang dicari
     public function search($params)
     {
         $query = InfoPelanggan::find();

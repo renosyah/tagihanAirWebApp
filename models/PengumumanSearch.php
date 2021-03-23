@@ -9,11 +9,18 @@ use app\models\Pengumuman;
 /**
  * PengumumanSearch represents the model behind the search form of `app\models\Pengumuman`.
  */
+// berikut ini adalah class 
+// model yang akan digunakan untuk 
+// melakukan fungsi CRUD
 class PengumumanSearch extends Pengumuman
 {
     /**
      * {@inheritdoc}
      */
+    // list variabel yang akan menampung
+    // value dan juga dengan tipe datanya
+    // yang harus sesuai dengan tipe data
+    // pada colomn di table database
     public function rules()
     {
         return [
@@ -25,6 +32,7 @@ class PengumumanSearch extends Pengumuman
     /**
      * {@inheritdoc}
      */
+    // fungsi skenario
     public function scenarios()
     {
         // bypass scenarios() implementation in the parent class
@@ -38,6 +46,9 @@ class PengumumanSearch extends Pengumuman
      *
      * @return ActiveDataProvider
      */
+    // fungsi search yang berfungsi untuk
+    // mengambil data list namun berdasarkan column
+    // yang dicari
     public function search($params)
     {
         $query = Pengumuman::find();

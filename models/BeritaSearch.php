@@ -9,11 +9,20 @@ use app\models\Berita;
 /**
  * BeritaSearch represents the model behind the search form of `app\models\Berita`.
  */
+
+// berikut ini adalah class 
+// model yang akan digunakan untuk 
+// melakukan fungsi CRUD
 class BeritaSearch extends Berita
 {
     /**
      * {@inheritdoc}
      */
+
+    // list variabel yang akan menampung
+    // value dan juga dengan tipe datanya
+    // yang harus sesuai dengan tipe data
+    // pada colomn di table database
     public function rules()
     {
         return [
@@ -25,9 +34,9 @@ class BeritaSearch extends Berita
     /**
      * {@inheritdoc}
      */
+    // fungsi skenario
     public function scenarios()
     {
-        // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
 
@@ -38,6 +47,9 @@ class BeritaSearch extends Berita
      *
      * @return ActiveDataProvider
      */
+    // fungsi search yang berfungsi untuk
+    // mengambil data list namun berdasarkan column
+    // yang dicari
     public function search($params)
     {
         $query = Berita::find();

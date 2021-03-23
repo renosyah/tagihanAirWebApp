@@ -11,18 +11,33 @@ use yii\base\Model;
  * @property-read User|null $user This property is read-only.
  *
  */
+// class model untuk
+// menangani data yang digunakan
+// untuk login
 class LoginForm extends Model
 {
+    // variabel username
     public $username;
+
+    // variabel password
     public $password;
+
+    // variabel flag apakah
+    // user ingin tetap login
     public $rememberMe = true;
 
+    // variabel private untuk
+    // menyimpan data user
     private $_user = false;
 
 
     /**
      * @return array the validation rules.
      */
+    // list variabel yang akan menampung
+    // value dan juga dengan tipe datanya
+    // yang harus sesuai dengan tipe data
+    // pada colomn di table database
     public function rules()
     {
         return [
@@ -42,6 +57,8 @@ class LoginForm extends Model
      * @param string $attribute the attribute currently being validated
      * @param array $params the additional name-value pairs given in the rule
      */
+    // fungsi untuk mevalidasi password user
+    // dengan password dari dastabase 
     public function validatePassword($attribute, $params)
     {
         if (!$this->hasErrors()) {
@@ -57,6 +74,7 @@ class LoginForm extends Model
      * Logs in a user using the provided username and password.
      * @return bool whether the user is logged in successfully
      */
+    // fungsi login
     public function login()
     {
         if ($this->validate()) {
@@ -70,6 +88,8 @@ class LoginForm extends Model
      *
      * @return User|null
      */
+    // fungsi untuk mengambil data user
+    // dari database
     public function getUser()
     {
         if ($this->_user === false) {
