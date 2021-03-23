@@ -11,11 +11,17 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\InfoPelangganSearch;
 
+// class controller untuk
+// mengatur halaman dan data yang
+// akan ditampilkan
 class SiteController extends Controller
 {
     /**
      * {@inheritdoc}
      */
+    // fungsi untuk mengatur
+    // action dari
+    // form yang dikirim
     public function behaviors()
     {
         return [
@@ -42,6 +48,9 @@ class SiteController extends Controller
     /**
      * {@inheritdoc}
      */
+    // fungsi untuk mengatur
+    // action dari
+    // form yang dikirim
     public function actions()
     {
         return [
@@ -60,6 +69,9 @@ class SiteController extends Controller
      *
      * @return string
      */
+    // fungsi untuk mengatur halaman
+    // index dan data yang akan
+    // ditampilkan pada halaman
     public function actionIndex()
     {
         $searchModel = new InfoPelangganSearch();
@@ -74,6 +86,8 @@ class SiteController extends Controller
      *
      * @return Response|string
      */
+    // fungsi yang akan mengatur
+    // dan mengolah data login
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
@@ -96,6 +110,8 @@ class SiteController extends Controller
      *
      * @return Response
      */
+    // fungsi yang akan mengatur
+    // dan menghapus session login
     public function actionLogout()
     {
         Yii::$app->user->logout();
@@ -108,6 +124,8 @@ class SiteController extends Controller
      *
      * @return string
      */
+    // fungsi yang akan mengatur
+    // dan menampilkan tapilan about
     public function actionAbout()
     {
         return $this->render('about');

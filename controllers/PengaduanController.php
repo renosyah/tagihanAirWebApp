@@ -12,11 +12,17 @@ use yii\filters\VerbFilter;
 /**
  * PengaduanController implements the CRUD actions for Pengaduan model.
  */
+// class controller untuk
+// mengatur halaman dan data yang
+// akan ditampilkan
 class PengaduanController extends Controller
 {
     /**
      * {@inheritdoc}
      */
+    // fungsi untuk mengatur
+    // action dari
+    // form yang dikirim
     public function behaviors()
     {
         return [
@@ -33,6 +39,9 @@ class PengaduanController extends Controller
      * Lists all Pengaduan models.
      * @return mixed
      */
+    // fungsi untuk mengatur halaman
+    // index dan data yang akan
+    // ditampilkan pada halaman
     public function actionIndex()
     {
         $searchModel = new PengaduanSearch();
@@ -50,6 +59,8 @@ class PengaduanController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
+    // fungsi untuk mengatur detail data
+    // yang akan ditampilkan pada halaman 
     public function actionView($id)
     {
         return $this->render('view', [
@@ -62,6 +73,8 @@ class PengaduanController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
+    // fungsi untuk mengatur form
+    // untuk input data
     public function actionCreate()
     {
         $model = new Pengaduan();
@@ -82,6 +95,10 @@ class PengaduanController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
+    // fungsi untuk mengatur form
+    // untuk menampilkan dan input data
+    // yang mana akan diolah dan 
+    // diupdate ke database oleh model
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -102,6 +119,10 @@ class PengaduanController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
+    // fungsi untuk mengatur form
+    // untuk menampilkan dan input data
+    // yang mana akan diolah dan 
+    // dihapus dari database oleh model
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
@@ -116,6 +137,9 @@ class PengaduanController extends Controller
      * @return Pengaduan the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
+    // fungsi untuk mengambil satu data
+    // berdasarkan id lalu divalidasi
+    // apakah ada datanya
     protected function findModel($id)
     {
         if (($model = Pengaduan::findOne($id)) !== null) {
