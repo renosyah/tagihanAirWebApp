@@ -29,7 +29,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 'id_pelanggan',
                 'id_bayar',
-                'tgl_pembayaran',
+                [
+                    'attribute' => 'tgl_pembayaran',
+                    'format' => ['date', 'php:d/m/Y']
+                ], 
                 'denda',
                 'total_bayar',
 
