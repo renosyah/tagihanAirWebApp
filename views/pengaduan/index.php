@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Buat Pengaduan', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php //echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php echo $this->render('_search', ['model' => $searchModel]); ?>
     <div class="table-responsive">
         <?= GridView::widget([
             'id' => 'gridview-bg',
